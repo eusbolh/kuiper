@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Peer from 'peerjs';
 import ConnectToClient from '../../components/connectToClient/ConnectToClient';
 import ConnectToServer from '../../components/connectToServer/ConnectToServer';
 import FileSharer from '../../components/fileSharer/FileSharer';
 
+let peer = null;
+
 const App = () => {
+  useEffect(() => {
+    peer = new Peer(null, {
+      host: 'localhost',
+      port: 5000,
+      path: '/kuiper'
+    });
+    peer.on('connection', (conn) => {
+      conn.on('data', (data) => {
+        console.log('data');
+      });
+      conn.on('open', () => {
+        conn.send('hello!');
+      })
+    })
+  }, []);
+  
   return (
     <div className="k-app">
       <section>
