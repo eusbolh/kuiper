@@ -8,11 +8,16 @@ let peer = null;
 
 const App = () => {
   useEffect(() => {
+    let start, end;
+    start = performance.now();
     peer = new Peer(null, {
-      host: 'localhost',
-      port: 5000,
-      path: '/kuiper'
+      host: process.env.REACT_APP_PEER_HOST || 'localhost',
+      port: process.env.REACT_APP_PEER_PORT || 5000,
+      path: process.env.REACT_APP_PEER_PATH || '/kuiper'
     });
+    end = performance.now();
+    console.log(start, end, end - start);
+    console.log(peer);
     peer.on('connection', (conn) => {
       conn.on('data', (data) => {
         console.log('data');
@@ -20,7 +25,7 @@ const App = () => {
       conn.on('open', () => {
         conn.send('hello!');
       })
-    })
+    });
   }, []);
   
   return (
