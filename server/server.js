@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cache = require('memory-cache');
 const mongoose = require('mongoose');
 
 require('dotenv').config();
@@ -24,6 +25,9 @@ const usersRouter = require('./routes/users');
 app.use('/exercises', exerciseRouter);
 app.use('/users', usersRouter);
 */
+
+// Initialize peers on cache
+cache.put('peers', [])
 
 const peersRouter = require('./routes/peers');
 app.use('/peers', peersRouter)
