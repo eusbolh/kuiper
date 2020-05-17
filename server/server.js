@@ -24,7 +24,6 @@ const server = app.listen(port, () => {
 const peerServer = ExpressPeerServer(server, {
   debug: true,
   path: '/',
-  generateClientId: () => (Math.random().toString(36) + '0000000000000000000').substr(2, 16),
 });
 
 app.use('/kuiper', peerServer);
