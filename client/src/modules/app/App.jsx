@@ -23,7 +23,27 @@ const handleClientConnection = (serverConn, clientConn, setClientConn, peerID) =
   });
   conn.on('data', (data) => {
     console.log(data);
-  })
+  });
+
+  /*
+    Connection stats
+    https://stackoverflow.com/questions/29130453/using-webrtc-getstat-api/37148261
+
+    conn.peerConnection.getStats((report) => {
+      var rtcStatsReports = report.result();
+      console.log(rtcStatsReports);
+      for (var i=0; i<rtcStatsReports.length; i++) {
+        var statNames = rtcStatsReports[i].names();
+        var logs = "";
+        for (var j=0; j<statNames.length; j++) {
+            var statName = statNames[j];
+            var statValue = rtcStatsReports[i].stat(statName);
+            logs = logs + statName + ": " + statValue + ", ";
+        }
+        console.log(logs);
+      }
+    });
+  */
 }
 
 const handleServerConnection = (setServerConn, setAddClientConn, setPeerList) => {
