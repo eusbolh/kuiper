@@ -123,37 +123,45 @@
             flex-direction: column;
 
             .k-connect-to-client-peer {
-              align-items: center;
-              display: flex;
               padding: .5rem .5rem;
 
-              .k-connect-to-client-peer-id {
-              }
-    
-              button {
-                background-color: #4a5263;
-                border: none;
-                border-radius: .25rem;
-                color: #fff;
-                cursor: pointer;
-                font-size: .75rem;
-                font-weight: 500;
-                height: 2em;
-                margin-left: auto;
-                text-transform: uppercase;
-              }
-            
-              button:hover {
-                background-color: #5d677c;
-              }
+              .k-connect-to-client-peer-button {
+                align-items: center;
+                display: flex;
+
+                .k-connect-to-client-peer-id {
+                }
       
-              button:disabled {
-                background-color: #d4d4d4;
+                button {
+                  background-color: #4a5263;
+                  border: none;
+                  border-radius: .25rem;
+                  color: #fff;
+                  cursor: pointer;
+                  font-size: .75rem;
+                  font-weight: 500;
+                  height: 2em;
+                  margin-left: auto;
+                  text-transform: uppercase;
+                }
+              
+                button:hover {
+                  background-color: #5d677c;
+                }
+        
+                button:disabled {
+                  background-color: #d4d4d4;
+                  color: gray;
+                }
+        
+                button:disabled:hover {
+                  background-color: #d4d4d4;
+                }
+              }
+
+              .k-connect-to-client-peer-connection-details {
                 color: gray;
-              }
-      
-              button:disabled:hover {
-                background-color: #d4d4d4;
+                font-size: .75rem;
               }
             }
 
