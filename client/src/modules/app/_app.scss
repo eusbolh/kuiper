@@ -140,7 +140,7 @@
                   cursor: pointer;
                   font-size: .75rem;
                   font-weight: 500;
-                  height: 2em;
+                  height: 2rem;
                   margin-left: auto;
                   text-transform: uppercase;
                 }
@@ -197,6 +197,50 @@
               color: gray;
               text-align: center;
             }
+          }
+        }
+
+        .k-share-file-with-peer {
+
+          select {
+            border: 2px solid lightgray;
+            border-radius: 3px;
+            height: 2.5rem;
+            font-size: 1rem;
+            padding: .25rem;
+            width: 100%;
+          }
+
+          select:first-child {
+            margin-bottom: .5rem;
+          }
+
+          .k-share-file-with-peer-file-list {
+
+          }
+    
+          button {
+            background-color: #4a5263;
+            border: none;
+            border-radius: .25rem;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            height: 2.5rem;
+            width: 100%;
+          }
+        
+          button:hover {
+            background-color: #5d677c;
+          }
+  
+          button:disabled {
+            background-color: #d4d4d4;
+            color: gray;
+          }
+  
+          button:disabled:hover {
+            background-color: #d4d4d4;
           }
         }
       }
