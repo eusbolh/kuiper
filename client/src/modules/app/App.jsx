@@ -58,16 +58,19 @@ const handleServerConnection = (setServerConn, setAddClientConn, setPeerList) =>
   let start, end;
   start = performance.now();
   const serverConn = new Peer((Math.random().toString(36) + '0000000000000000000').substr(2, 16), {
-    host: process.env.REACT_APP_PEER_HOST || 'localhost',
+    host: process.env.REACT_APP_PEER_HOST || '161.35.66.51',
     port: process.env.REACT_APP_PEER_PORT || 5000,
     path: process.env.REACT_APP_PEER_PATH || '/kuiper',
   });
-  end = performance.now();
-  setServerConn({
-    conn: serverConn,
-    timeElapsed: (end - start).toFixed(3),
+
+  serverConn.on('open', () => {
+    end = performance.now();
+    setServerConn({
+      conn: serverConn,
+      timeElapsed: (end - start).toFixed(3),
+    });
+    console.log(`Connected to server in ${(end - start).toFixed(3)} ms.`);
   });
-  console.log(`Connected to server in ${(end - start).toFixed(3)} ms.`);
   
   // Behavior when a peer is connected
   serverConn.on('connection', (conn) => {
@@ -145,7 +148,7 @@ const sendFileToPeer = (fileSizeToSend, clientToSend, clientConn) => {
 
 const getPeerList = (setPeerList) => {
   axios
-    .get('http://localhost:5000/peers')
+    .get('http://161.35.66.51:5000/peers')
     .then((response) => {
       setPeerList(Object.keys(response.data));
     })
