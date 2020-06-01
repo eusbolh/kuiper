@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('./www.sabah.com.tr.har', 'utf-8', (err, plain) => {
+fs.readFile('./www.bloomberg.com.har', 'utf-8', (err, plain) => {
   processFileSummaryBySize(JSON.parse(plain).log);
 });
 
